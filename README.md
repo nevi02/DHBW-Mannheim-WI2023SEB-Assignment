@@ -14,10 +14,11 @@
 10) Ganz am Ende eine Pull-Request erstellen (vor der Deadline)
 11) In der Pull-Request ALLE Gruppenteilnehmer als "Assignees" eintragen!
 
-## Was führt zu Punktabzug?
+## Was führt zu zusätzlichem Punktabzug?
 
 ⚠️ node_modules (oder vergleichbares) in der Pull-Request
 
 ⚠️ Wenn eine Person nichts zu der Prüfungsleistung beigetragen hat (und dementsprechend keinen Commit im Repository gemacht hat)
 
+⚠️ Wenn die Prüfungsleistung nicht per selber gemacht wurde (heißt auch, wenn sie von einer AI entwickelt wurde!)
 
