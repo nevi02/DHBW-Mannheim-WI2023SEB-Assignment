@@ -6,7 +6,7 @@
     "esModuleInterop": true,
     "strict": true,
     "outDir": "dist",
-    "types": ["node"]       
+    "types": ["node", "express", "amqplib"]    
   },
   "include": ["src"]
 }
