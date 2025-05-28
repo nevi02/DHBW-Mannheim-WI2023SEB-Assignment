@@ -11,7 +11,7 @@
 - Mindestens: Lampe an/aus, Helligkeit ändern, Farbe wechseln, Morsecode anzeigen
 - Vorgegeben: Event-Driven-Architecture (z.B. mit Apache Kafka oder RabbitMQ)
 - Tipp: https://www.npmjs.com/package/tplink-bulbs
-- Das sind die dazugehörigen Befehle, die ein TP-Link Device kann: https://github.com/DrBackmischung/tplink-bulbs/blob/main/src/tapo-device.ts
+- Das sind die dazugehörigen Befehle, die ein TP-Link Device kann (das sind NICHT die Events, die ihr feuern könnt/sollt, sondern nur die Befehle, wie ihr im Consumer eure Lampe ansteuern könnt): https://github.com/DrBackmischung/tplink-bulbs/blob/main/src/tapo-device.ts
 6) In euren Ordner gehört auch eine `README.md`, die eine Anleitung beinhaltet, wie das Projekt zu benutzen ist!
 7) Die Ausarbeitung gehört in den selben Ordner mit dem Namen `ASSIGNMENT.md`. Bitte achtet dabei darauf, dass ihr die Fragen gescheit beantwortet und euer Assignment erklärt!
 8) Keine Passwörter auf GitHub!
