@@ -1,5 +1,13 @@
 {
+  "scripts": {
+   "start": "ts-node src/run.ts"
+  },
   "dependencies": {
-    "tplink-bulbs": "^1.0.1"
+    "tplink-bulbs": "^1.0.1",
+    "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.23",
+    "ts-node": "^10.9.1"
   }
 }
