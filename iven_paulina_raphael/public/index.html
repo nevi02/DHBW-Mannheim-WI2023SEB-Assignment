@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lampensteuerung</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    button {
+      margin: 5px;
+    }
+    #status {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tapo Lampe steuern</h1>
+
+  <div>
+    <button onclick="sendCommand('on')">An</button>
+    <button onclick="sendCommand('off')">Aus</button>
+    <button onclick="sendCommand('red')">Rot</button>
+    <button onclick="sendCommand('green')">Grün</button>
+    <button onclick="sendCommand('blue')">Blau</button>
+  </div>
+
+  <div>
+    <label for="brightness">Helligkeit (0–100): </label>
+    <input type="number" id="brightness" min="0" max="100">
+    <button onclick="setBrightness()">Setzen</button>
+  </div>
+
+  <div>
+    <label for="morseInput">Morsecode Nachricht:</label>
+    <input type="text" id="morseInput">
+    <button onclick="sendMorse()">Senden</button>
+  </div>
+
+  <div id="status"></div>
+
+  <script>
+    const API_ENDPOINT = '/api/command';  // hier anpassen!
+
+    async function sendCommand(command) {
+      try {
+        const res = await fetch(API_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ type: 'basic', command })
+        });
+
+        if (res.ok) {
+          showStatus(`Befehl "${command}" gesendet.`, 'green');
+        } else {
+          showStatus(`Fehler vom Server: ${res.status}`, 'red');
+        }
+      } catch (err) {
+        showStatus(`Netzwerkfehler: ${err.message}`, 'red');
+      }
+    }
+
+    async function setBrightness() {
+      const value = document.getElementById('brightness').value;
+      if (!value) return showStatus("Bitte eine Helligkeit eingeben.", "red");
+
+      try {
+        const res = await fetch(API_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ type: 'brightness', value })
+        });
+
+        if (res.ok) {
+          showStatus(`Helligkeit auf ${value} gesetzt.`, 'green');
+        } else {
+          showStatus(`Fehler vom Server: ${res.status}`, 'red');
+        }
+      } catch (err) {
+        showStatus(`Netzwerkfehler: ${err.message}`, 'red');
+      }
+    }
+
+    async function sendMorse() {
+      const text = document.getElementById('morseInput').value.trim();
+      if (!text) return showStatus("Bitte einen Text eingeben.", "red");
+
+      try {
+        const res = await fetch(API_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ type: 'morse', text })
+        });
+
+        if (res.ok) {
+          showStatus(`Morse-Nachricht "${text}" gesendet.`, 'green');
+        } else {
+          showStatus(`Fehler vom Server: ${res.status}`, 'red');
+        }
+      } catch (err) {
+        showStatus(`Netzwerkfehler: ${err.message}`, 'red');
+      }
+    }
+
+    function showStatus(message, color = 'black') {
+      const statusEl = document.getElementById('status');
+      statusEl.textContent = message;
+      statusEl.style.color = color;
+    }
+  </script>
+</body>
+</html>
