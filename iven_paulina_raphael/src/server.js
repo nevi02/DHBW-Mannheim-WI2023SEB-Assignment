@@ -3,10 +3,15 @@ import amqp from 'amqplib';
 import * as TPLink from 'tplink-bulbs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import dotenv from 'dotenv';
+dotenv.config();
 
-const email = 'paupau1105@web.de';
-const password = 'Lampenprojekt';
-const deviceId = '8023D8C274F3E61C342C3A825E76747A237F6D68';
+
+const email = process.env.EMAIL;
+const password = process.env.PASSWORD;
+const deviceId = process.env.DEVICE_ID;
+
+console.log(email);
 
 const app = express();
 app.use(express.json());
@@ -79,7 +84,7 @@ async function startRabbitMQConsumer() {
     const ch = await conn.createChannel();
     await ch.assertQueue(queueName);
 
-    ch.consume(queueName, async (msg) => {
+    ch.consume(queueName, async (msg) => { console.log(msg);
       const data = JSON.parse(msg.content.toString());
       console.log('Empfangener Befehl:', data);
 
@@ -122,7 +127,7 @@ app.use(express.static(publicPath));
 
 app.listen(4000, async () => {
   console.log('Serving static files from:', publicPath);
-  console.log('🚀 Server läuft auf http://localhost:4000');
+  console.log('Server läuft auf http://localhost:4000');
   await setupLamp();
   await startRabbitMQConsumer();
 });

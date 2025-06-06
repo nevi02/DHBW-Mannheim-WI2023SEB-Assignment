@@ -1,4 +1,4 @@
-import 'dotenv/config';
+/*import 'dotenv/config';
 import * as TPLink from 'tplink-bulbs';
 
 const email    = process.env.TP_EMAIL!;
@@ -19,4 +19,4 @@ async function run() {
   }
 }
 
-run();
+run();*/
