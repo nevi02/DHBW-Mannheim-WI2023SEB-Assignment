@@ -1,0 +1,60 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lampensteuerung</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; background: #f8f9fa; }
+    button, input { margin: 0.5rem 0; display: block; padding: 0.5rem 1rem; }
+    section { margin-bottom: 2rem; }
+  </style>
+</head>
+<body>
+  <h1>💡 Lampensteuerung</h1>
+
+  <section>
+    <h2>Grundfunktionen</h2>
+    <button onclick="sendCommand({ type: 'basic', command: 'on' })">Einschalten</button>
+    <button onclick="sendCommand({ type: 'basic', command: 'off' })">Ausschalten</button>
+  </section>
+
+  <section>
+    <h2>Farbe setzen</h2>
+    <button onclick="sendCommand({ type: 'basic', command: 'red' })">Rot</button>
+    <button onclick="sendCommand({ type: 'basic', command: 'green' })">Grün</button>
+    <button onclick="sendCommand({ type: 'basic', command: 'blue' })">Blau</button>
+  </section>
+
+  <section>
+    <h2>Helligkeit</h2>
+    <input id="brightness" type="range" min="1" max="100" value="50" oninput="updateBrightness(this.value)">
+  </section>
+
+  <section>
+    <h2>Morsecode senden</h2>
+    <input id="morseText" placeholder="Text eingeben" />
+    <button onclick="sendMorse()">Senden</button>
+  </section>
+
+  <script>
+    async function sendCommand(payload) {
+      await fetch('/api/command', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+    }
+
+    function updateBrightness(value) {
+      sendCommand({ type: 'brightness', value });
+    }
+
+    function sendMorse() {
+      const text = document.getElementById('morseText').value;
+      sendCommand({ type: 'morse', text });
+    }
+  </script>
+</body>
+</html>
