@@ -1,6 +1,8 @@
 import amqp from 'amqplib';
 import { blinkMorse } from '../lamp/controller.js';
 
+let brightnessTimeout;
+
 export async function startConsumer(queueName, device) {
   try {
     const conn = await amqp.connect('amqp://127.0.0.1');
@@ -16,12 +18,19 @@ export async function startConsumer(queueName, device) {
           if (data.command === 'on') await device.turnOn();
           else if (data.command === 'off') await device.turnOff();
           else if (["red", "green", "blue"].includes(data.command)) {
-            await device.setColour(data.command);
+            await device.setColor(data.command);
           }
         } else if (data.type === 'brightness') {
-          await device.setBrightness(parseInt(data.value));
+          clearTimeout(brightnessTimeout);
+          brightnessTimeout = setTimeout(async () => {
+            await device.setBrightness(parseInt(data.value));
+            console.log('Helligkeit gesetzt:', data.value);
+          }, 300);
         } else if (data.type === 'morse') {
           await blinkMorse(device, data.text);
+        } else if (data.type === 'color') {
+          await device.setColor(data.value);
+          console.log('Farbe gesetzt:', data.value);
         }
       } catch (err) {
         console.error('Fehler bei der Verarbeitung der Nachricht:', err.message);

@@ -11,7 +11,7 @@ export async function blinkMorse(device, message) {
       await device.turnOn();
       await TPLink.API.delay(700);
     } else {
-      await TPLink.API.delay(500); // Pause für Leerzeichen oder Trennzeichen
+      await TPLink.API.delay(500);
     }
     await device.turnOff();
     await TPLink.API.delay(300);
