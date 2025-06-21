@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "ts-node src/run.ts"
+    "start": "ts-node src/test3.js"
   },
   "dependencies": {
     "amqplib": "^0.10.8",

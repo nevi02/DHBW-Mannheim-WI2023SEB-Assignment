@@ -22,13 +22,13 @@ async function run() {
   console.log('Device Info:', info);
 
   await device.turnOn();
-  await device.setColour('violet');
+  await device.setColor('violet');
   await TPLink.API.delay(500);
 
-  await device.setColour('red');
+  await device.setColor('red');
   await TPLink.API.delay(500);
 
-  await device.setColour('orange');
+  await device.setColor('orange');
   await TPLink.API.delay(500);
 
   //...

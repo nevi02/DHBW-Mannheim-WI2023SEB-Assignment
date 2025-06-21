@@ -92,7 +92,7 @@ async function startRabbitMQConsumer() {
         if (data.command === 'on') await device.turnOn();
         if (data.command === 'off') await device.turnOff();
         if (['red', 'green', 'blue'].includes(data.command)) {
-          await device.setColour(data.command);
+          await device.setColor(data.command);
         }
       } else if (data.type === 'brightness') {
         await device.setBrightness(parseInt(data.value));

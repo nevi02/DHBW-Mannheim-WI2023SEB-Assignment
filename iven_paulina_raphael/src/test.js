@@ -22,6 +22,7 @@ async function run() {
   const cloudApi = await safeCloudLogin(email, password);
 
   const devices = await cloudApi.listDevicesByType('SMART.TAPOBULB');
+  console.log('Geräte:', devices);
   const targetDevice = devices.find(device => device.deviceId === deviceId);
 
   if (!targetDevice) {
@@ -31,7 +32,7 @@ async function run() {
 
   const device = await TPLink.API.loginDevice(email, password, targetDevice);
   await device.turnOn();
-  await device.setColour('blue');
+  await device.setColor('blue');
 }
 
 run().catch(console.error);
