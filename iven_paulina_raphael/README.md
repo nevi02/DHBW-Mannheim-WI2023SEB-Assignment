@@ -33,7 +33,7 @@ RABBITMQ_USER=guest
 RABBITMQ_PASS=guest
 RABBITMQ_URL=amqp://guest:guest@localhost:5672
 
-# HTTP-Server (Port der API wird ignoriert, 4000 ist fest im Code)
+# HTTP-Server 
 API_PORT=3000
 ```
 
