@@ -16,8 +16,8 @@ Ein Node.js-Projekt mit Webinterface zur Steuerung einer TP-Link Tapo-Lampe. Bef
 1. Repository klonen
 
 ```bash
-git clone https://github.com/DEIN_USERNAME/DEIN_REPO.git
-cd DEIN_REPO
+git clone https://github.com/nevi02/DHBW-Mannheim-WI2023SEB-Assignment.git
+cd DHBW-Mannheim-WI2023SEB-Assignment
 ```
 
 2. `.env`-Datei erstellen
