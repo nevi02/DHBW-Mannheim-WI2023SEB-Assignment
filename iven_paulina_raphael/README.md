@@ -94,13 +94,25 @@ Beispielanfragen:
 
 ```
 .
-├── public/               # index.html und Webinterface
+├── public/
+│   └── index.html              # Webinterface (Frontend)
 ├── src/
-│   ├── api/routes.js     # HTTP-Router
-│   ├── lamp/             # TP-Link Setup und Steuerung
-│   ├── messaging/        # RabbitMQ Producer & Consumer
-│   └── server.js         # Einstiegspunkt
-├── docker-compose.yml    # Startet RabbitMQ
-├── .env                  # Konfiguration
-└── package.json
+│   ├── api/
+│   │   └── routes.js           # HTTP-Router
+│   ├── lamp/
+│   │   ├── controller.js       # Morsecode-Steuerung der Lampe
+│   │   └── setup.js            # TP-Link API Setup
+│   ├── messaging/
+│   │   ├── consumer.js         # RabbitMQ Consumer
+│   │   └── producer.js         # RabbitMQ Producer
+│   ├── utils/
+│   │   └── morse.js            # Text → Morsecode-Konvertierung
+│   └── server.js              # Einstiegspunkt des Servers
+├── .env                        # Lokale Umgebungsvariablen (nicht committen)
+├── .gitignore                  # Git-Ignore-Datei
+├── ASSIGNMENT.md              # Aufgabenbeschreibung
+├── docker-compose.yml         # Startet RabbitMQ-Service
+├── package.json               # Projekt- und Abhängigkeitsdefinition
+├── package-lock.json          # Versionen der installierten Pakete
+└── README.md                  # Anleitung & Beschreibung (diese Datei)
 ```
