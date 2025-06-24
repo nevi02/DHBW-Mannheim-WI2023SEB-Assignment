@@ -5,10 +5,10 @@ Ein Node.js-Projekt mit Webinterface zur Steuerung einer TP-Link Tapo-Lampe. Bef
 
 🔧 Voraussetzungen
 ------------------
- 🐳 Docker & Docker Compose
- 📦 Node.js (>=18)
- 🧠 Git
- ✅ Zugangsdaten für dein TP-Link/Tapo-Konto
+- 🐳 Docker & Docker Compose
+- 📦 Node.js (>=18)
+- 🧠 Git
+- ✅ Zugangsdaten für dein TP-Link/Tapo-Konto
 
  Installation & Start
 -----------------------
@@ -67,11 +67,11 @@ Webserver läuft nun unter: http://localhost:4000
 Die Startseite zeigt eine einfache Benutzeroberfläche zur Steuerung der Lampe:
 
 Funktionen:
-💡 Ein/Aus: Knöpfe zur Stromsteuerung
-🎨 Vordefinierte Farben: Rot, Grün, Blau
-🟠 Farbpicker: Beliebige Farbe setzen
-🔆 Helligkeit: Slider mit Live-Anzeige
-🆘 Morsecode: Text eingeben und über Licht blinken lassen
+- 💡 Ein/Aus: Knöpfe zur Stromsteuerung
+- 🎨 Vordefinierte Farben: Rot, Grün, Blau
+- 🟠 Farbpicker: Beliebige Farbe setzen
+- 🔆 Helligkeit: Slider mit Live-Anzeige
+- 🆘 Morsecode: Text eingeben und über Licht blinken lassen
 
  API-Endpunkt
 ----------------
