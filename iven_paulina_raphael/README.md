@@ -5,12 +5,12 @@ Ein Node.js-Projekt mit Webinterface zur Steuerung einer TP-Link Tapo-Lampe. Bef
 
 🔧 Voraussetzungen
 ------------------
-- 🐳 Docker & Docker Compose
-- 📦 Node.js (>=18)
-- 🧠 Git
-- ✅ Zugangsdaten für dein TP-Link/Tapo-Konto
+ 🐳 Docker & Docker Compose
+ 📦 Node.js (>=18)
+ 🧠 Git
+ ✅ Zugangsdaten für dein TP-Link/Tapo-Konto
 
-🚀 Installation & Start
+ Installation & Start
 -----------------------
 
 1. Repository klonen
@@ -37,7 +37,7 @@ RABBITMQ_URL=amqp://guest:guest@localhost:5672
 API_PORT=3000
 ```
 
-⚠️ Achtung: Diese Datei nicht ins Repository hochladen!
+Achtung: Diese Datei nicht ins Repository hochladen!
 
 3. RabbitMQ starten
 
@@ -62,18 +62,18 @@ npm start
 
 Webserver läuft nun unter: http://localhost:4000
 
-🌐 Weboberfläche
+ Weboberfläche
 -----------------
 Die Startseite zeigt eine einfache Benutzeroberfläche zur Steuerung der Lampe:
 
 Funktionen:
-- 💡 Ein/Aus: Knöpfe zur Stromsteuerung
-- 🎨 Vordefinierte Farben: Rot, Grün, Blau
-- 🟠 Farbpicker: Beliebige Farbe setzen
-- 🔆 Helligkeit: Slider mit Live-Anzeige
-- 🆘 Morsecode: Text eingeben und über Licht blinken lassen
+💡 Ein/Aus: Knöpfe zur Stromsteuerung
+🎨 Vordefinierte Farben: Rot, Grün, Blau
+🟠 Farbpicker: Beliebige Farbe setzen
+🔆 Helligkeit: Slider mit Live-Anzeige
+🆘 Morsecode: Text eingeben und über Licht blinken lassen
 
-🔌 API-Endpunkt
+ API-Endpunkt
 ----------------
 
 POST /api/command  
@@ -89,7 +89,7 @@ Beispielanfragen:
 { "type": "morse", "text": "SOS" }
 ```
 
-📁 Projektstruktur
+ Projektstruktur
 ------------------
 
 ```
@@ -105,8 +105,6 @@ Beispielanfragen:
 │   ├── messaging/
 │   │   ├── consumer.js         # RabbitMQ Consumer
 │   │   └── producer.js         # RabbitMQ Producer
-│   ├── utils/
-│   │   └── morse.js            # Text → Morsecode-Konvertierung
 │   └── server.js              # Einstiegspunkt des Servers
 ├── .env                        # Lokale Umgebungsvariablen (nicht committen)
 ├── .gitignore                  # Git-Ignore-Datei
@@ -115,4 +113,5 @@ Beispielanfragen:
 ├── package.json               # Projekt- und Abhängigkeitsdefinition
 ├── package-lock.json          # Versionen der installierten Pakete
 └── README.md                  # Anleitung & Beschreibung (diese Datei)
+
 ```
