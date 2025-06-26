@@ -68,10 +68,11 @@ Consumer (Lampensteuerung):
 
 Änderungen am Lampenzustand werden per WebSocket an die Statusanzeige im Browser gesendet.
 
+## Wie funktioniert eure Anwendung?
 ### Ablauf der Steuerung:
 
 Benutzereingabe:
-- Der Nutzer steuert über das Web-Frontend Funktionen wie Ein-/Ausschalten, Helligkeit, Farbe oder Morsecode.
+- Der Nutzer steuert über das Web-Frontend (HTML mit Express) Funktionen wie Ein-/Ausschalten, Helligkeit, Farbe oder Morsecode.
 
 Nachrichtenversand:
 - Das Backend sendet die Befehle in Form von JSON-Nachrichten an die Queue lamp-commands.
@@ -92,7 +93,7 @@ Helligkeit regulieren:
 Einstellbar von 0 bis 100 Prozent.
 
 Farbe ändern:
-Eingabe als Hex-Wert.
+Eingabe als RGB oder Farbpalette.
 
 Morse-Code:
 Texteingaben werden in Morsezeichen übersetzt und durch Blinksignale der Lampe dargestellt.
