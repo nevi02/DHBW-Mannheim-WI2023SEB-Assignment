@@ -80,9 +80,6 @@ Nachrichtenversand:
 Nachrichtenverarbeitung:
 - Der Consumer verarbeitet die Nachricht und führt die gewünschte Aktion an der Lampe aus. Ohne reale Lampe wird ein Demo-Modus mit Konsolenausgaben aktiviert.
 
-Statusanzeige:
-- Der aktuelle Zustand der Lampe wird per WebSocket an die Statusseite im Browser übertragen.
-
 ## Erfüllung der Anforderungen
 Die Anwendung erfüllt alle in der Aufgabenstellung genannten Funktionen:
 
